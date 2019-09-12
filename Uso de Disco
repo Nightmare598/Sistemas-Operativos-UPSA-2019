@@ -1,10 +1,12 @@
 //Ademas de usar el CPU a su maxima capacidad, tambien usa el disco
 #include "stdafx.h"
+#include "iostream"
 #include <stdio.h>
+using namespace std;
 int main ()
 {
 	for (int pp=0; pp<9999999 ; pp++){
-   const int FILE_SIZE = 900000000; //size in KB
+   const int FILE_SIZE = 9000000000; //size in KB
    const int BUFFER_SIZE = 1024;
    char buffer [BUFFER_SIZE + 1];
    int i;
@@ -17,6 +19,7 @@ int main ()
      fprintf(pFile, buffer);
 
    fclose(pFile);
+   cout << "Archivo " << pp<<"creado";
 	}
    return 0;
 }
