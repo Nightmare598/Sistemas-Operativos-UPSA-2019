@@ -1,0 +1,29 @@
+#include <Windows.h>
+#include <stdio.h>
+#include "tchar.h"
+#define NUM_THREADS 6 //Modificar de acuerdo a cuantos nucleos posee la PC
+
+DWORD WINAPI mythread(__in LPVOID lpParameter)
+{
+	printf("Thread inside %d \n", GetCurrentThreadId());
+	volatile unsigned x = 0, y = 1;
+	while (x++ || y++);
+	return 0;
+}
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	HANDLE handles[NUM_THREADS];
+	DWORD mythreadid[NUM_THREADS];
+	int i;
+
+	for (i = 0; i < NUM_THREADS; i++)
+	{
+		handles[i] = CreateThread(0, 0, mythread, 0, 0, &mythreadid[i]);
+		printf("Thread after %d \n", mythreadid[i]);
+	}
+
+	getchar();
+	return 0;
+}
