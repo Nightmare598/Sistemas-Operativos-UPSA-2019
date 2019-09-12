@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include <stdio.h>
 #include "tchar.h"
-#define NUM_THREADS 6 //Modificar de acuerdo a cuantos nucleos posee la PC
+#define NUM_THREADS 10 //Modificar de acuerdo a cuantos nucleos posee la PC
 
 DWORD WINAPI mythread(__in LPVOID lpParameter)
 {
